@@ -3,6 +3,10 @@ def call(Map pipelineParams)
   pipeline
   {	
     agent any	
+    tools {
+            maven 'Maven'
+            jdk 'Java'
+        }
       stages	
       {		
           stage('environment')		
