@@ -14,6 +14,7 @@ def call(Map pipelineParams)
               steps			
               {				
                   sh 'java -version'
+                  sh 'mvn -version'
               }		
            }
           stage('environment')		
@@ -28,6 +29,7 @@ def call(Map pipelineParams)
               steps			
               {				
                   echo "Maven Build :::::: ${pipelineParams.ENV_NAME}"	
+                  sh 'mvn clean install'
                }		
             }	
            stage('codeScan')
