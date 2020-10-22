@@ -9,6 +9,13 @@ def call(Map pipelineParams)
         }
       stages	
       {		
+        stage('print')		
+          {			
+              steps			
+              {				
+                  sh 'java -version'
+              }		
+           }
           stage('environment')		
           {			
               steps			
