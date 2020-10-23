@@ -30,7 +30,10 @@ def call(Map pipelineParams)
               {				
                   echo "Maven Build :::::: ${pipelineParams.ENV_NAME}"	
                   //sh 'mvn clean install'
-                  sh 'scripts/mavenBuild.sh'
+                  //sh 'scripts/mavenBuild.sh'
+                  def scriptContent = libraryResource "com/dev/scripts/mavenBuild.sh"
+					writeFile file: "mavenBuild.sh", text: scriptContent
+					sh "chmod +x mavenBuild.sh"
                }		
             }	
            stage('codeScan')
