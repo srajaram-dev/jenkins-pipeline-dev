@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" 
+  xmlns="http://maven.apache.org/SETTINGS/1.1.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+    <server>
+      <!-- Environment varaibles are set in Jenkins -->
+      <username>${MVN_REPO_USER}</username>
+      <password>${MVN_REPO_PWD}</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>${MVN_REPO_USER}</username>
+      <password>${MVN_REPO_PWD}</password>
+      <id>snapshots</id>
+    </server>
+  </servers>
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>${MAVEN_LIB_RLSE_REPO}</name>
+          <url>${MAVEN_REPO_URL}${MAVEN_LIB_RLSE_REPO}</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>${MAVEN_LIB_SNPST_REPO}</name>
+          <url>${MAVEN_REPO_URL}${MAVEN_LIB_SNPST_REPO}</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>MAVEN_LIB_RLSE_REPO</name>
+          <url>${MAVEN_REPO_URL}${MAVEN_LIB_RLSE_REPO}</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>${MAVEN_LIB_SNPST_REPO}</name>
+          <url>${MAVEN_REPO_URL}${MAVEN_LIB_SNPST_REPO}</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
