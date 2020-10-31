@@ -30,4 +30,4 @@ echo "Building application $APPLICATION"
 echo "Building version $VERSION"
 
 
-#mvn clean install
+mvn clean install site -B -U
